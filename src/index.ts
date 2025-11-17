@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import { PrismaClient } from './generated/prisma/client';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.routes';
+import productRoutes from './routes/product.routes';
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ app.use(express.json());
 
 // API Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
 
 // Health check
 app.get('/', (req: Request, res: Response) => {
